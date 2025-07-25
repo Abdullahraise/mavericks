@@ -1,0 +1,149 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    135deg,
+    #e0f2fe,
+    #f0f9ff
+  ); /* light blue gradient */
+  margin: 0;
+  padding: 0;
+  color: #1f2937; /* dark gray */
+}
+
+/* === Header === */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1e40af; /* deep blue */
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+/* === Card Containers (ResumeUploader, Leaderboard, LearningPath) === */
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  margin: 1rem auto;
+  max-width: 800px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* === Buttons === */
+button {
+  background-color: #2563eb; /* blue */
+  color: white;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+button:hover {
+  background-color: #1e40af;
+  transform: translateY(-2px);
+}
+
+/* === Tables === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+th,
+td {
+  border: 1px solid #e5e7eb;
+  padding: 0.75rem;
+  text-align: left;
+}
+th {
+  background: #eff6ff;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+tbody tr:hover {
+  background: #f9fafb;
+}
+
+/* === Progress Stepper === */
+.progress-stepper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+.progress-stepper::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  right: 5%;
+  height: 4px;
+  background: #d1d5db;
+  z-index: 0;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1;
+}
+.step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  border: 2px solid #9ca3af;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+.step.active .step-circle {
+  background: #2563eb;
+  border: none;
+  color: white;
+}
+.step.completed .step-circle {
+  background: #10b981;
+  border: none;
+  color: white;
+}
+.step p {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.status-completed {
+  color: #059669; /* green */
+  font-weight: bold;
+}
+.status-in-progress {
+  color: #2563eb; /* blue */
+  font-weight: bold;
+}
+.status-not-started {
+  color: #6b7280; /* gray */
+  font-weight: bold;
+}
+.text-center {
+  text-align: center;
+}
+
+/* === Table Row Hover Animation === */
+tbody tr {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+tbody tr:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  background: #f1f5f9; /* subtle light gray background on hover */
+}
