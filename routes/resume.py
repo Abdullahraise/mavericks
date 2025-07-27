@@ -29,7 +29,9 @@ async def upload_resume(file: UploadFile = File(...)):
             raise HTTPException(status_code=400, detail="Unsupported file type")
 
         skills = await extract_skills(text, openai_client)
+        print("Extracted skills:", skills)  # Add this line
         return {"skills": skills}
+
 
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to process file: {e}")
