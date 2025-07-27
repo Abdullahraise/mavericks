@@ -2,6 +2,11 @@ fastapi
 uvicorn
 pydantic
 python-multipart
+
 openai
 spacy
-
+PyPDF2
+aiohttp  
+httpx    
+jinja2  
+python-dotenv 
