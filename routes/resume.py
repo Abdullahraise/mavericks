@@ -1,17 +1,16 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException
-from services.parser import extract_skills_from_resume
+from fastapi import APIRouter, HTTPException
+from pydantic import BaseModel
+from ai.utils import extract_skills
+from openai import OpenAI
 
-router = APIRouter(prefix="/resume", tags=["Resume"])
+router = APIRouter(prefix="/upload", tags=["Resume"])
+openai_client = OpenAI()  # your configured client
 
-@router.post("/upload")
-async def upload_resume(file: UploadFile = File(...)):
-    if not file.filename.endswith((".pdf", ".txt")):
-        raise HTTPException(status_code=400, detail="Only .pdf or .txt files allowed.")
+class ResumeIn(BaseModel):
+    resume: str
 
-    contents = await file.read()
-    text = contents.decode("utf-8", errors="ignore")  # basic read for txt files
-
-    # Extract skills (for now, a dummy function)
-    skills = extract_skills_from_resume(text)
-
-    return {"skills": skills, "filename": file.filename}
+@router.post("/", response_model=dict)
+async def upload_resume(payload: ResumeIn):
+    text = payload.resume
+    skills = await extract_skills(text, openai_client)
+    return {"skills": skills}
