@@ -8,7 +8,14 @@ import {
 } from "recharts";
 
 export default function SkillChart({ skills }) {
-  // Convert skills array [{name, score}] into chart data
+  if (!Array.isArray(skills) || skills.length === 0) {
+    return (
+      <div className="text-center text-gray-500 mt-4">
+        No skills to display.
+      </div>
+    );
+  }
+
   const data = skills.map((skill) => ({
     subject: skill.name,
     A: skill.score,

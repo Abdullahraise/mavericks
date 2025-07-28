@@ -147,3 +147,17 @@ tbody tr:hover {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
   background: #f1f5f9; /* subtle light gray background on hover */
 }
+/* Avatar circle if needed */
+.avatar-circle {
+  width: 60px;
+  height: 60px;
+  background: #60a5fa;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
